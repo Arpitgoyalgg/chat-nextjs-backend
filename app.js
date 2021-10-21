@@ -22,7 +22,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-//configure using environment variables
+//configure environment variables
 const dotenv = require('dotenv');
 dotenv.config();
 

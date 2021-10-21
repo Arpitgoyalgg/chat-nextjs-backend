@@ -1,18 +1,13 @@
 var express = require('express');
 var router = express.Router();
-
-// let user_room_map = {'Arpit': '', 'Vaibhav': '', 'Hari': '', 'Shyam': ''};
-let users = []
-
+var db = require('../db')
 
 /* GET users listing. */
-router.get('/', function(req, res, next) {
-  // users = []
-  // Object.keys(user_room_map).map(function (key,index) {
-  //   users.push(key)
-  // })
-  console.log(`sending - ${users}`)
-  res.send(users);
+router.get('/', async function(req, res, next) {
+  const client = await db.connect();
+  const result = await client.query('SELECT * FROM Users');
+  console.log(result.rows)
+  res.send(result.rows);
 });
 
 /* POST add user. */
