@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
 /* POST add user. */
 router.post('/add', function(req, res, next) {
-  console.log(req.body.name)
+  console.log(`data coming - ${req.body.name}`)
   users.push(req.body.name)
   res.send('add user');
 });
