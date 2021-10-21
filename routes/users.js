@@ -4,6 +4,8 @@ var db = require('../db')
 
 /* GET users listing. */
 router.get('/', async function(req, res, next) {
+
+  // fetch users from postgres database heroku
   const client = await db.connect();
   const result = await client.query('SELECT * FROM Users');
   console.log(result.rows)
@@ -11,9 +13,14 @@ router.get('/', async function(req, res, next) {
 });
 
 /* POST add user. */
-router.post('/add', function(req, res, next) {
-  console.log(`data coming - ${req.body.name}`)
-  users.push(req.body.name)
+router.post('/add', async function(req, res, next) {
+  const user = req.body.name
+  console.log(`data coming - ${user}`)
+
+  // add user to postgres database heroku
+  const client = await db.connect();
+  const result = await client.query(`INSERT INTO Users(name) VALUES('${user}')`);
+
   res.send('add user');
 });
 
