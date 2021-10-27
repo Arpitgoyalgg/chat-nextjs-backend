@@ -25,7 +25,7 @@ io.on( "connection", function( socket ) {
             user_room_map[userKey] = socket.id;
             socket.emit('add onlineUsr', userKey);
         }
-        console.log('working!')
+        console.log('working login!')
     });
 
     socket.on('add msg', function(curRoomName, curRoomUser,msg) {
@@ -37,7 +37,7 @@ io.on( "connection", function( socket ) {
 
         io.to(roomId).emit('realtime chatting', author, curRoomName, msg);
 
-        console.log('working')
+        console.log('working add msg')
     });
 
     socket.on('disconnect', function() {
@@ -45,7 +45,7 @@ io.on( "connection", function( socket ) {
         let usr = Object.keys(user_room_map).find(key => user_room_map[key]===socket.id);
         user_room_map[usr] = "";
 
-        console.log('working')
+        console.log('disconnected')
 
     });
 
