@@ -33,8 +33,7 @@ io.on( "connection", function( socket ) {
         chatroom_data[curRoomName].push(msg);
         const roomId = user_room_map[curRoomUser];
         // broacast newMsg to other client
-        author = curRoomName.replace(curRoomUser,"").replace(":","");
-
+        let author = curRoomName.replace(curRoomUser, "").replace(":", "");
         io.to(roomId).emit('realtime chatting', author, curRoomName, msg);
 
         console.log('working add msg')

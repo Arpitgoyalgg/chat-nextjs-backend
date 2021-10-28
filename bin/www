@@ -21,7 +21,12 @@ app.set('port', port);
  */
 
 var server = http.createServer(app);
-socketapi.io.attach(server);
+
+const options = { cors: {
+    origin: "http://localhost:3000",
+    credentials: true
+  }};
+socketapi.io.attach(server,options);
 
 /**
  * Listen on provided port, on all network interfaces.
