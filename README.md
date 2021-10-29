@@ -1,4 +1,6 @@
-# Docs
+# chat-nextjs-backend
+
+This is the backend code repository for [nextjs-chat](https://github.com/Arpitgoyalgg/chat-nextjs) project.
 
 ## Routes
 
