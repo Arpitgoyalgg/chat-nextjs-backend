@@ -3,9 +3,9 @@ const socketapi = {
     io: io
 };
 
-let user_room_map = {'Arpit': '', 'Vaibhav': '', 'Tushar': '', 'Big': ''};
+global.user_room_map = {'Arpit': '', 'Vaibhav': '', 'Tushar': '', 'Big': ''};
 
-let chatroom_data = {
+global.chatroom_data = {
     'Arpit:Vaibhav': [{author: 'Arpit', text: 'hi'}],
     'Arpit:Tushar': [{author: 'Arpit', text: 'hi'}],
     'Arpit:Big': [{author: 'Arpit', text: 'hi'}],
