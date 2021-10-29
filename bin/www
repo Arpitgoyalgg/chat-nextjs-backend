@@ -23,7 +23,7 @@ app.set('port', port);
 var server = http.createServer(app);
 
 const options = { cors: {
-    origin: "http://localhost:3000",
+    origin: "https://chat-nextjs.vercel.app/",
     credentials: true
   }};
 socketapi.io.attach(server,options);
