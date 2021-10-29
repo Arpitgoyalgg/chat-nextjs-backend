@@ -22,8 +22,11 @@ app.set('port', port);
 
 var server = http.createServer(app);
 
+//configure environment variables
+const dotenv = require('dotenv');
+dotenv.config();
 const options = { cors: {
-    origin: "http://localhost:3000",
+    origin: process.env.CLIENT_URL,
     credentials: true
   }};
 socketapi.io.attach(server,options);
